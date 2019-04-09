@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class Config {
+public class ConfigRestTemplate {
 
     /**
      * 在springboot1.4版本后，就不会自动生成restTemplate，需要自己创建然后注入使用
