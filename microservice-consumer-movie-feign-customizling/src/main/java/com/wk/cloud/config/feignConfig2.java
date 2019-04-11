@@ -14,4 +14,6 @@ public class feignConfig2 {
     public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
         return new BasicAuthRequestInterceptor("user", "passwd123");
     }
+
+
 }

@@ -12,3 +12,6 @@ eureka:
     appname: consumer-move-feign-customizling
     prefer-ip-address: true
     instance-id: ${eureka.instance.appname}:${spring.cloud.client.ipAddress}:${server.port}
+logging:
+  level:
+    com.wk.cloud.microservicesimpleconsumermovie.feign.FeignClient: debug
