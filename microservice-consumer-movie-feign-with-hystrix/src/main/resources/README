@@ -1,3 +1,5 @@
+在注解@FeignClient使用fallback就是hystrix的功能
+
 定义了feignclient的fallback方法时,在controller函数中注入就会发现两个bean,不知注入哪一个的问题.
 解决方法:
 方法一:
