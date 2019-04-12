@@ -1,0 +1,35 @@
+server:
+  port: 9032
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:passwd123@localhost:8761/eureka/
+    healcheck:
+      enabled: true
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: microserver-turbine-with-context-path2
+# 此时的turbine是配置为监控多个集群应用,分别就是app-config中的service
+turbine:
+  aggregator:
+    cluster-config: CONSUMER-MOVE-RIBBON-HYSTRIX-WTH-CONTEXTPATH2
+  app-config: consumer-move-ribbon-hystrix-wth-contextpath2
+#  cluster-name-expression: metadata['cluster']
+# 注意这里的服务名称必须大写,也就是和eureka中的application下名字一致.
+#turbine.instanceUrlSuffix.CONSUMER-MOVE-RIBBON-HYSTRIX-WTH-CONTEXTPATH2: /ribbon/hystrix.stream
+
+#打开turbine的日志
+logging:
+  level:
+    root: debug
+    com.netflix.turbine.monitor: debug
+
+
+
+# 此时的turbine配置为监控一个集群
+#turbine:
+#  aggregator:
+#    cluster-config: CONSUMER-MOVE-RIBBON-HYSTRIX
+#  app-config: consumer-move-ribbon-hystrix

@@ -1,0 +1,20 @@
+management:
+  port: 8081      # 在turbine或actuator中使用时,端口必须为8081
+server:
+  port: 9005
+  context-path: /ribbon
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:passwd123@localhost:8761/eureka/
+    healcheck:
+      enabled: true
+  instance:
+    appname: consumer-move-ribbon-hystrix-wth-contextpath2
+    prefer-ip-address: true
+    metadata-map:
+      management.port: 8081
+      #cluster: ABC    #目前有错,没有调试成功 #如果这里配置了,那么turbine.cluster-config必须为ABC,  clusterNameExpression配置 metadata['cluster']
+    instance-id: ${eureka.instance.appname}:${spring.cloud.client.ipAddress}:${server.port}
+    home-page-url-path: /ribbon
+
