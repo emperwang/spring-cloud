@@ -24,6 +24,11 @@ public class UserController {
         return restTemplate.getForObject("http://MICROSERVICE-PROVIDE-USER/find/"+id,User.class);
     }
 
+    /**
+     * 此断路函数的返回值和参数要注意:返回值和参数一定要和原函数一样
+     * @param id
+     * @return
+     */
     public User findFallback(Long id){
         User user = new User();
         user.setId(00L);
