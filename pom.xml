@@ -21,6 +21,7 @@
         <module>microservice-provider-user</module>
         <module>microservice-consumer-movie-feign</module>
         <module>microservice-consumer-movie-feign-with-hystrix</module>
+        <module>microservice-consumer-movie-feign-with-hystrix-and-hystrix-factory</module>
         <module>microservice-consumer-movie-feign-customizling</module>
         <module>microservice-consumer-movie-feign-customizling-without-hystrix</module>
         <module>microservice-consumer-movie</module>
