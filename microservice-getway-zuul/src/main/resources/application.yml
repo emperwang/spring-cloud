@@ -7,12 +7,14 @@ eureka:
 spring:
   application:
     name: getway-zuul
-# 为服务名为microservice-provide-user提供别名user,以后访问路径为http://localhost:8040/user/*  访问的都是此服务
+# 为多个服务配置路径
 zuul:
-  ignored-services: consumer-move-ribbon-hystrix
   routes:
-    microservice-provide-user: /user/**
-
-
+    users1:
+      path: /user/**
+      serviceId: microservice-provide-user
+    users2:
+      path: /ribbon/**
+      serviceId: consumer-move-ribbon-hystrix
 
 

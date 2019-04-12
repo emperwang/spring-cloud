@@ -19,3 +19,11 @@ zuule:
   ignoredServices: consumer-move-ribbon-hystrix
   routes:
     microservice-provide-user: /user/**
+
+配置三:
+# 给服务指定路径
+zuule:
+  routes:
+    users:    # 名字随便,只不过要唯一
+      path: /myusers/**   # 指定的路径
+      serviceId: consumer-move-ribbon-hystrix # 服务名字
