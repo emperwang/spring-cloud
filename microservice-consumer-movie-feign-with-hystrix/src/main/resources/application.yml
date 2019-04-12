@@ -1,0 +1,18 @@
+server:
+  port: 9002
+#  servlet:
+#    context-path: /consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:passwd123@localhost:8761/eureka/
+    healcheck:
+      enabled: true
+  instance:
+    appname: consumer-move-feign-with-hystrix
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.appname}:${spring.cloud.client.ipAddress}:${server.port}
+#开启hystrix配置
+feign:
+  hystrix:
+    enabled: true

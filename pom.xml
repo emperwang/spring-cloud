@@ -20,6 +20,7 @@
     <modules>
         <module>microservice-provider-user</module>
         <module>microservice-consumer-movie-feign</module>
+        <module>microservice-consumer-movie-feign-with-hystrix</module>
         <module>microservice-consumer-movie-feign-customizling</module>
         <module>microservice-consumer-movie</module>
         <module>microservice-discover-eureka-server</module>

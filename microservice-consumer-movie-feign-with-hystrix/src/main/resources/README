@@ -1,0 +1,11 @@
+定义了feignclient的fallback方法时,在controller函数中注入就会发现两个bean,不知注入哪一个的问题.
+解决方法:
+方法一:
+1.在controller使用@Autowired注解
+2.在实现类上使用@component(value="otherName"),给实现类的bean起一个别名
+3.此时注入就可以了
+
+方法二:
+1,在实现类使用@component,不添加别名
+2,在controller注入时使用@Resource按照名字注入.
+3,问题解决
