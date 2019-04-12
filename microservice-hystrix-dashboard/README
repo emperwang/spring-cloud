@@ -1,0 +1,2 @@
+检测hystrix.stream的前台页面.
+访问的url: localhost:9030/hystrix  打开dashboard页面,输入要监控的hystrix.stream路径即可.
