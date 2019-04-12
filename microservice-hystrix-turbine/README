@@ -1,0 +1,5 @@
+dashboard只是监控一个,turbine对hystrix.stream进行了合并,可以监控集群的情况
+turbine访问url:
+http://localhost:port/turbine.stream?cluster=server.name(注册的服务的名字)
+
+把上面的url复制到dashboard中就可以监控了.

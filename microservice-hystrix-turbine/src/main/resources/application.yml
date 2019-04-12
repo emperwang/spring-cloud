@@ -1,0 +1,26 @@
+server:
+  port: 9031
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:passwd123@localhost:8761/eureka/
+    healcheck:
+      enabled: true
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: microserver-turbine
+# 此时的turbine是配置为监控多个集群应用,分别就是app-config中的service
+turbine:
+  aggregator:
+    cluster-config: default
+  app-config: consumer-move-ribbon-hystrix,consumer-move-feign-with-hystrix
+  cluster-name-expression: "'default'"
+
+
+# 此时的turbine配置为监控一个集群
+#turbine:
+#  aggregator:
+#    cluster-config: CONSUMER-MOVE-RIBBON-HYSTRIX
+#  app-config: consumer-move-ribbon-hystrix
