@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: foobar
+  cloud:
+    config:
+      uri: http://localhost:8000
+      profile: dev
+      label: master
+
+
+
