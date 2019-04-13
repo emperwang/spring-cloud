@@ -32,6 +32,7 @@
         <module>microservice-discover-eureka-server</module>
         <module>microservice-getway-zuul</module>
         <module>microservice-getway-zuul-fallback</module>
+        <module>microservice-getway-zuul-filter</module>
         <module>microservice-discover-eureka-server-ha</module>
         <module>microservice-consumer-movie-ribbon</module>
         <module>microservice-consumer-movie-ribbon-hystrix</module>

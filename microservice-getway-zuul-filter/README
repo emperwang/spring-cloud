@@ -1,0 +1,4 @@
+zuul没有任何配置时,访问代理的服务url路径:(默认zuul代理所有的微服务)
+http://localhost:8040/microservice-provide-user/find/1
+
+zuul的过滤器编写

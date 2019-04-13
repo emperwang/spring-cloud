@@ -1,0 +1,18 @@
+server:
+  port: 8040
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:passwd123@localhost:8761/eureka
+spring:
+  application:
+    name: getway-zuul
+# 为服务名为microservice-provide-user提供别名user,以后访问路径为http://localhost:8040/user/*  访问的都是此服务
+zuul:
+  ignored-services: consumer-move-ribbon-hystrix
+  routes:
+    microservice-provide-user: /user/**
+
+
+
+
