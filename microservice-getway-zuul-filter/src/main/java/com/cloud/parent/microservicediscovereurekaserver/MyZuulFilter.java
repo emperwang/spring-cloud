@@ -31,7 +31,7 @@ public class MyZuulFilter extends ZuulFilter {
     }
 
     /**
-     * 什么类型的过滤器pre，post等
+     * 什么类型的过滤器pre，post,route,discovery
      * @return
      */
     @Override
