@@ -1,0 +1,5 @@
+自动刷新配置
+注解：@RefreshScope
+依赖：actuator
+
+访问： curl -x post http://localhost:8000/refresh  就可以刷新配置了
