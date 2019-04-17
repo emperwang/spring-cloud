@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: foobar
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server-eureka
+
+
+
+

@@ -1,0 +1,1 @@
+把config-server注册到eureka，让config-client通过eureka进行服务发现
