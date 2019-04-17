@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: foobar
+  cloud:
+    config:
+    # 也可以在url里面配置名字和密码，不过属性配置的名字和密码优先级更高
+      uri: http://localhost:8000   #http://user:passwd123@localhost:8000
+      name: user
+      password: passwd123
+      profile: dev
+      label: master
+
+
+
