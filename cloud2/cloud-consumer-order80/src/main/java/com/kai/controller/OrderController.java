@@ -14,6 +14,9 @@ public class OrderController {
 
     private String LocalPaymentUrl="http://localhost:8001";
 
+    // restTemplate 添加注解@LoadBalanced 就可以使用eureka中的服务的名字来进行访问,并且有负载均衡的功能
+    private String LocalPaymentHostName="http://CLOUD-PAYMENT-SERVICE";
+
     @Resource
     private RestTemplate restTemplate;
 
@@ -27,14 +30,14 @@ public class OrderController {
         }else{
             return new CommonResult<Payment>(statusCode, "error", null);
         }*/
-        ResponseEntity<CommonResult> responseEntity = restTemplate.getForEntity(LocalPaymentUrl + "/payment/get/" + id,
+        ResponseEntity<CommonResult> responseEntity = restTemplate.getForEntity(LocalPaymentHostName + "/payment/get/" + id,
                 CommonResult.class);
         return responseEntity.getBody();
     }
 
     @PostMapping(value = "/consumer/payment/create")
     public Object getOrder(@RequestBody Payment payment){
-        ResponseEntity<CommonResult> responseEntity = restTemplate.postForEntity(LocalPaymentUrl + "/payment/create", payment, CommonResult.class);
+        ResponseEntity<CommonResult> responseEntity = restTemplate.postForEntity(LocalPaymentHostName + "/payment/create", payment, CommonResult.class);
         return responseEntity.getBody();
     }
 }
