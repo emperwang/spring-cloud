@@ -8,5 +8,9 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:7001/eureka
+      #defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka-7001:7001/eureka,http://eureka-7002:7002/eureka
+  instance:
+    # 如果设置了此name,那么就会覆盖 application.name
+    #appname: cloud------order
 
