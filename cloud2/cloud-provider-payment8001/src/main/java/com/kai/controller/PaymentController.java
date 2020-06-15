@@ -5,18 +5,42 @@ import com.kai.entity.Payment;
 import com.kai.service.PaymentService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 public class PaymentController {
 
     @Resource
     private PaymentService paymentService;
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @Value("${server.port}")
     private Integer port;
+
+    /**
+     * 通过  discoveryClient可以去发现eureka上的服务信息
+     */
+    @GetMapping(value = "/payment/discover")
+    public Object discoverPayment(){
+        List<String> services = discoveryClient.getServices();
+        for (String service : services) {
+            System.out.println("service: " + service);
+        }
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        for (ServiceInstance instance : instances) {
+            System.out.println("instance: port="+instance.getHost()+", instance-id="+instance.getInstanceId()+
+                    ", schema="+instance.getScheme()+", serviceId="+instance.getServiceId()+
+                    ",uri=" + instance.getUri());
+        }
+
+        return "ok";
+    }
 
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult<Payment> getById(@PathVariable(name = "id") Long id){
