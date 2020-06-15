@@ -1,0 +1,11 @@
+server:
+  port: 7001
+
+eureka:
+  instance:
+    appname: eureka7001   # 设置实例名字
+  client:
+    register-with-eureka: false # 表示不向注册中心注册自己
+    fetch-registry: false   # 表示自己就是注册中心, 职责就是维护服务实例,并不需要去检索服务
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka   # 注册地址
