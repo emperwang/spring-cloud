@@ -10,6 +10,8 @@ spring:
       discovery:
         service-name: ${spring.application.name}
         instance-id: cloud-providerconsul-payment8007
+        health-check-critical-timeout: 30m
+        prefer-ip-address: true
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.gjt.mm.mysql.Driver
