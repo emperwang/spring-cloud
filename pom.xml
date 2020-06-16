@@ -68,4 +68,12 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>cloud2</id>
+            <modules>
+                <module>cloud2</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>
