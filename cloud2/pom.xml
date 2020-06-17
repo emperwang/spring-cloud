@@ -25,6 +25,8 @@
     <module>cloud-consumerConsul-order80</module>
     <module>cloud-consumerConsul-customLoadBalance-order80</module>
       <module>cloud-consumer-openfeign-order80</module>
+    <module>cloud-provider-hystrix-payment8010</module>
+    <module>cloud-consumer-openfeign-hystrix-order81</module>
   </modules>
 
 

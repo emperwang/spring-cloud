@@ -1,0 +1,26 @@
+server:
+  port: 81
+spring:
+  application:
+    name: consumer-openfeign-hystrix81
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      # 注册eureka单机
+      defaultZone: http://localhost:7001/eureka
+      # 注册服务到eureka 集群中
+      #defaultZone: http://eureka-7001:7001/eureka,http://eureka-7002:7002/eureka
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 2
+    lease-renewal-interval-in-seconds: 1
+# 配置ribbon的超时时间
+#ribbon:
+  #ReadTimeout: 5000
+  #ConnectTimeout: 5000
+# 打开feign的hystrix的功能
+feign:
+  hystrix:
+    enabled: true
