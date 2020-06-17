@@ -26,7 +26,7 @@ public class ConsumerHystrixController {
         return s;
     }
 
-    // 断路器 保护
+    // 断路器 保护  HystrixCommandProperties 配置文件
     // 此方式,为每一个方法配置一个fallback方法,看似很方便,真实情况是 方法爆炸,太多;
     // 其实只需要给特定的方法添加fallback,其他方法可以使用默认的fallback
     /*@HystrixCommand(fallbackMethod = "paymentInfoTimeoutFallback", commandProperties = {
