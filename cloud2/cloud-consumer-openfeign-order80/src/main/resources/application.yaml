@@ -15,3 +15,8 @@ eureka:
 ribbon:
   ReadTimeout: 6000
   ConnectTimeout: 6000
+
+# 配置feign的打印package
+logging:
+  level:
+    com.kai.service.ConsumerPaymentService: debug
