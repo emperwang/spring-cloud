@@ -32,4 +32,11 @@ public class PaymentController {
         log.info("********paymentInfoTimeout, result: " + res+"; port = "+serverPort);
         return res +"; port = "+serverPort;
     }
+
+    @GetMapping(value = "/payment/hystrix/breaker/{id}")
+    public String paymentCircuitBreaker(@PathVariable(name = "id") Integer id){
+        String res = paymentService.paymentCircuitBreaker(id);
+        log.info("********paymentCircuitBreaker, result: " + res+"; port = "+serverPort);
+        return res;
+    }
 }
