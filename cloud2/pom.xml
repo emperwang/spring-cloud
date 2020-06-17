@@ -24,6 +24,7 @@
     <module>cloud-providerconsul-payment8008</module>
     <module>cloud-consumerConsul-order80</module>
     <module>cloud-consumerConsul-customLoadBalance-order80</module>
+      <module>cloud-consumer-openfeign-order80</module>
   </modules>
 
 
