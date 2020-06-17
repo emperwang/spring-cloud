@@ -1,0 +1,28 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-centor
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/emperwang/springcloudconfig.git
+          #username: emperwang
+          search-paths:
+            - springcloudconfig
+      label: master
+
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 2
+    lease-renewal-interval-in-seconds: 1
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      # 注册eureka单机
+      defaultZone: http://localhost:7001/eureka
+      # 注册服务到eureka 集群中
+      #defaultZone: http://eureka-7001:7001/eureka,http://eureka-7002:7002/eureka
