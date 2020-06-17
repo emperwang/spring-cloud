@@ -11,6 +11,11 @@
 
     <artifactId>cloud-consumer-order80</artifactId>
     <dependencies>
+        <!--sleuth 追踪访问链路-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.kai.cloud</groupId>
             <artifactId>cloud-api-common</artifactId>

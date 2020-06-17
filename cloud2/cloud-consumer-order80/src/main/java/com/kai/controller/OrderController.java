@@ -40,4 +40,10 @@ public class OrderController {
         ResponseEntity<CommonResult> responseEntity = restTemplate.postForEntity(LocalPaymentHostName + "/payment/create", payment, CommonResult.class);
         return responseEntity.getBody();
     }
+
+    @GetMapping(value = "/consumer/payment/zipkin")
+    public String paymentZipKin(){
+
+        return restTemplate.getForObject(LocalPaymentHostName + "/payment/zipkin",String.class);
+    }
 }

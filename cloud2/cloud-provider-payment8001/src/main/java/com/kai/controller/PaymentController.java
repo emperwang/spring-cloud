@@ -72,4 +72,9 @@ public class PaymentController {
         }
         return new CommonResult<Payment>(200, "Payment Timeout, port="+port);
     }
+
+    @GetMapping(value = "/payment/zipkin")
+    public String paumentZipkin(){
+        return "hi, this is paymentZipkin server..";
+    }
 }
