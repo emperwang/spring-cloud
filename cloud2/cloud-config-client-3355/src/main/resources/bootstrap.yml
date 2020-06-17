@@ -23,3 +23,10 @@ eureka:
       defaultZone: http://localhost:7001/eureka
       # 注册服务到eureka 集群中
       #defaultZone: http://eureka-7001:7001/eureka,http://eureka-7002:7002/eureka
+
+# 暴露 actuator 路径; 此处主要是暴露 actuator/refresh 用来刷新配置使用
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
