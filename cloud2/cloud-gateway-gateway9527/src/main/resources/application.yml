@@ -1,0 +1,48 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway-9527
+  cloud:
+    gateway:
+      routes:
+        - id: payment_routh  # 路由id,没有固定规则但要求唯一
+          # 可以看到此处的uri地址都是hard code; 当然gateway作为eureka client会从注册端发现服务
+          #uri: http://localhost:8010 #匹配后提供服务的路由地址
+          # 此处表示通过服务的名称来对服务调用; lb 表示 loadBalance 负载均衡
+          uri: lb://cloud-payment-service
+          filters:
+            - AddRequestParameter=X-Request-Id,1024  # 此过滤器会添加一个请求头到request中,名称为X-Request-Id,值为1024
+          predicates:
+            ### 路径匹配
+            - Path=/payment/get/**
+            # 对各种断言的测试
+            ### 在这个时间后, 才能访问
+            - After=2020-06-17T16:40:34.102+08:00[Asia/Shanghai]
+            ### 在这个时间前可以访问
+            #- Before=2020-06-18T16:40:34.102+08:00[Asia/Shanghai]
+            ### 在这个时间段可以访问
+            #- Between=2020-06-17T10:59:34.102+08:00[Asia/Shanghai], 2020-06-17T11:59:34.102+08:00[Asia/Shanghai]
+            ### 带cookie的访问, 前面是name 后面是正则表达式,; 会后去name对应的值去和正则匹配,匹配上则路由
+            #- Cookie=username,zzyy
+            ### header头规则,前面为name,后面为正则; 获取name对应的value去和正则匹配;匹配上则路由
+            #- Header=X-Request-Id,\d
+            ### header中host字段匹配
+            #- Host=**.kai.com
+            ### http method的匹配
+            #- Method=GET
+            ### 必须有参数名称, 且是正整数才匹配
+            #- Query=username,\d
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      # 注册eureka单机
+      defaultZone: http://localhost:7001/eureka
+      # 注册服务到eureka 集群中
+      #defaultZone: http://eureka-7001:7001/eureka,http://eureka-7002:7002/eureka

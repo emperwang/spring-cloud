@@ -1,0 +1,34 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway-9527
+  cloud:
+    gateway:
+      routes:
+        - id: payment_routh  # 路由id,没有固定规则但要求唯一
+          # 可以看到此处的uri地址都是hard code; 当然gateway作为eureka client会从注册端发现服务
+          uri: http://localhost:8010 #匹配后提供服务的路由地址
+          predicates:
+            - Path=/payment/hystrix/ok/**
+        - id: payment_routh2
+          uri: http://localhost:8010
+          predicates:
+            - Path=/payment/hystrix/timeout/**   # 断言, 路径相匹配的进行路由
+        - id: payment_route3
+          uri: http://localhost:8010
+          predicates:
+            - Path=/payment/hystrix/breaker/**
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      # 注册eureka单机
+      defaultZone: http://localhost:7001/eureka
+      # 注册服务到eureka 集群中
+      #defaultZone: http://eureka-7001:7001/eureka,http://eureka-7002:7002/eureka
