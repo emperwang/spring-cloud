@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class PaymentController {
@@ -60,5 +61,15 @@ public class PaymentController {
         }else{
             return new CommonResult<Payment>(500, "创建失败, port="+port, null);
         }
+    }
+    // 测试openfeign 的访问超时
+    @GetMapping(value = "/payment/timeout")
+    public Object paymentTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new CommonResult<Payment>(200, "Payment Timeout, port="+port);
     }
 }

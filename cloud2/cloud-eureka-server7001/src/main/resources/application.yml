@@ -14,6 +14,6 @@ eureka:
       #defaultZone: http://eureka-7002:7002/eureka   # 注册地址
   #server:
     # 关闭自我保护
-    #enable-self-preservation: false
+    enable-self-preservation: false
     # 失联多次时间就删除
-    #eviction-interval-timer-in-ms: 2000
+    eviction-interval-timer-in-ms: 2000

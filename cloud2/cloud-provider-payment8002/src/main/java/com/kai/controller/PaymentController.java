@@ -8,6 +8,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class PaymentController {
@@ -28,6 +29,16 @@ public class PaymentController {
         }
     }
 
+    @GetMapping(value = "/payment/timeout")
+    public Object paymentTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new CommonResult<Payment>(200, "Payment Timeout, port="+port);
+    }
+    // 测试openfeign 的访问超时
     @PostMapping(value = "/payment/create", consumes = "application/json")
     public Object creatPayment(@RequestBody Payment payment){
         int i = paymentService.insertPayment(payment);
