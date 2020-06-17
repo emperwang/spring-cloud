@@ -8,7 +8,9 @@ eureka:
     register-with-eureka: false # 表示不向注册中心注册自己
     fetch-registry: false   # 表示自己就是注册中心, 职责就是维护服务实例,并不需要去检索服务
     service-url:
+      # 自己的注册地址
       defaultZone: http://eureka-7001:7001/eureka   # 注册地址
+      # eureka集群的互相注册
       #defaultZone: http://eureka-7002:7002/eureka   # 注册地址
   #server:
     # 关闭自我保护

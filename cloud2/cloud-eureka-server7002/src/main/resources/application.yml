@@ -8,4 +8,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://eureka-7001:7001/eureka
+      # eureka 集群互相注册
+      #defaultZone: http://eureka-7001:7001/eureka
+      # 自己的注册地址
+      defaultZone: http://eureka-7002:7002/eureka
