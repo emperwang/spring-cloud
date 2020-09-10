@@ -18,8 +18,8 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.atguigu.springcloud</groupId>
-            <artifactId>cloud-api-commons</artifactId>
+            <groupId>com.kai.cloud</groupId>
+            <artifactId>KCloud</artifactId>
             <version>${project.version}</version>
         </dependency>
 
